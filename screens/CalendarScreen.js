@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import WeekdayLabels from '../components/WeekdayLabels'
-import Calendar from '../components/Calendar'
+import Calendar from '../components/calendar/Calendar'
 
 const CalendarScreen = props => {
     return (

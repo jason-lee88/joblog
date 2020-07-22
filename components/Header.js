@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 
-import AddEventButton from '../components/AddEventButton'
+import AddEventButton from './AddEventButton'
 
 const Header = props => {
     return (
