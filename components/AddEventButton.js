@@ -1,5 +1,5 @@
-import React from 'react'
-import { StyleSheet, Text, View, Pressable } from 'react-native'
+import React from 'react';
+import { StyleSheet, Text, View, Pressable } from 'react-native';
 
 const AddEventButton = props => {
     return (<Text style={styles.label}>+</Text>)

@@ -1,12 +1,14 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
 import WeekdayLabels from '../components/WeekdayLabels'
+import Calendar from '../components/Calendar'
 
 const CalendarScreen = props => {
     return (
         <View style={styles.container}>
             <WeekdayLabels/>
+            <Calendar/>
         </View>
     )
 };
