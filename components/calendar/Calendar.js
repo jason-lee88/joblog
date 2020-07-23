@@ -38,10 +38,16 @@ class Calendar extends React.Component {
 
     _renderItem = ({item, index}) => (
         <CalendarMonth
-            monthData = {item}
+            monthIdentity = {item}
             index = {index}
         />
     )
+
+    _itemSeparatorComponent = () => {
+        return (
+            <View style={styles.separator}/>
+        )
+    }
 
     render() {
         return (
@@ -49,6 +55,7 @@ class Calendar extends React.Component {
                 style={styles.container}
                 data={this.state.months}
                 renderItem={this._renderItem}
+                ItemSeparatorComponent = {this._itemSeparatorComponent}
             />
         )
     }
@@ -57,6 +64,10 @@ class Calendar extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1
+    },
+    separator: {
+        height: 2,
+        backgroundColor: '#f0f0f0'
     }
 })
 

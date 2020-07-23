@@ -1,12 +1,12 @@
 import React from 'react'
-import { StyleSheet, Text, View, Pressable } from 'react-native'
+import { StyleSheet, Text, SafeAreaView, Pressable } from 'react-native'
 
 const NavigationBar = props => {
     return (
-        <View style={styles.bar}>
+        <SafeAreaView style={styles.bar}>
             <Text style={styles.label}>Calendar</Text>
             <Text style={styles.label}>Settings</Text>
-        </View>
+        </SafeAreaView>
     )
 }
 
