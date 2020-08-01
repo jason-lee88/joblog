@@ -5,7 +5,7 @@ import Week from './Week';
 
 const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
-class CalendarMonth extends React.Component {
+class CalendarMonth extends React.PureComponent {
     daysInRows = []
 
     state = {
@@ -58,7 +58,7 @@ class CalendarMonth extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        height: 400
     },
     header: {
         fontSize: 36,
