@@ -50,6 +50,8 @@ class Calendar extends React.Component {
         />
     )
 
+    _keyExtractor = ({month, year, index}) => month + "-" + year
+
     _itemSeparatorComponent = () => {
         return (
             <View style={styles.separator}/>
@@ -57,7 +59,6 @@ class Calendar extends React.Component {
     }
 
     _onEndReached  = () => {
-        {console.log("end reached")}
         let currMonth = this.state.month
         let currYear = this.state.year
     
@@ -66,7 +67,7 @@ class Calendar extends React.Component {
     }
 
     _getItemLayout = (data, index) => { // All CalendarMonths are same height (no dynamic size calculation)
-        let itemHeight = 402 // Change when CalendarMonth's container height changes
+        let itemHeight = 402 // Change when either CalendarMonth container or separator height changes
         return ({length: itemHeight, offset: itemHeight*index, index: index})
     }
 
@@ -76,6 +77,7 @@ class Calendar extends React.Component {
                 style={styles.container}
                 data={this.state.months}
                 renderItem={this._renderItem}
+                keyExtractor={this._keyExtractor}
                 ItemSeparatorComponent={this._itemSeparatorComponent}
                 onEndReached={this._onEndReached}
                 getItemLayout={this._getItemLayout}
