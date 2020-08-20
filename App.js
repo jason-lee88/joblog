@@ -10,19 +10,23 @@ import AddEventScreenContainer from "./components/addEvent/AddEventScreenContain
 
 export default function App() {
   const [screen, setScreen] = useState("Calendar")
+  const [AEVisible, setAEVisibility] = useState(false)
 
   getScreen = newScreen => {
     setScreen(newScreen)
-    console.log(newScreen)
+  }
+
+  getAEVisibility = newVisibility => {
+    setAEVisibility(newVisibility)
   }
 
   return (
     <View style={styles.container}>
       <StatusBar style="auto"/>
-      <Header title="JobLog" currScreen={screen}/>
+      <Header title="JobLog" currScreen={screen} setVisibility={getAEVisibility}/>
       <CalendarScreen currScreen={screen}/>
       <SettingsScreen currScreen={screen}/>
-      {/* <AddEventScreenContainer/> */}
+      <AddEventScreenContainer AEVisibility={AEVisible} setVisibility={getAEVisibility}/>
       <NavigationBar setNewScreen={getScreen}/>
     </View>
   );

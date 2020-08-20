@@ -1,21 +1,23 @@
 import React, { useState } from 'react'
-import { StyleSheet, View, Text } from 'react-native'
+import { StyleSheet, View, Text, TouchableWithoutFeedback } from 'react-native'
 
 const Close = props => {
     return (
-        <View styles={styles.container}>
-            <Text styles={styles.x}>X</Text>
-        </View>
+        <TouchableWithoutFeedback onPress={() => props.setVisibility(false)}>
+            <View style={styles.container}>
+                <Text style={styles.x}>VVV</Text>
+            </View>
+        </TouchableWithoutFeedback>
     )
 }
 
 const styles = StyleSheet.create({
     x: {
-        fontSize: 36
+        fontSize: 20,
+        alignSelf: 'center'
     },
     container: {
-        width: 14,
-        height: 14,
+        height: 24
     }
 })
 

@@ -5,8 +5,8 @@ import AddEventWindow from './AddEventWindow'
 
 const AddEventScreenContainer = props => {
     return (
-        <View style={styles.container}>
-            <AddEventWindow/>
+        <View style={styles.container} display={props.AEVisibility == true ? 'flex' : 'none'}>
+            <AddEventWindow setVisibility={props.setVisibility}/>
         </View>
     )
 }
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         width: '100%',
         height: '100%',
-        justifyContent: 'center',
+        justifyContent: 'flex-end',
         alignItems: 'center'
     }
 })

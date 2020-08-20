@@ -2,7 +2,9 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 const AddEventButton = props => {
-    return (<Text style={styles.label}>+</Text>)
+    return (
+        <Text style={styles.label} onPress={() => props.setVisibility(true)}>+</Text>
+    )
 }
 
 const styles = StyleSheet.create({

@@ -5,8 +5,8 @@ import Close from "./Close"
 
 const AddEventWindow = props => {
     return (
-        <View styles={styles.container}>
-            <Close/>
+        <View style={styles.container}>
+            <Close setVisibility={props.setVisibility}/>
             <Text style={styles.title}>New Event</Text>
         </View>
     )
@@ -14,10 +14,18 @@ const AddEventWindow = props => {
 
 const styles = StyleSheet.create({
     title: {
-        fontSize: 36
+        fontSize: 36,
+        alignSelf: 'center'
     },
     container: {
-        flex: 1
+        backgroundColor: '#f0f0f0',
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
+        shadowOffset: {height: -10},
+        shadowOpacity: 0.4,
+        shadowRadius: 10,
+        width: '100%',
+        height: '80%',
     }
 })
 
