@@ -10,13 +10,18 @@ import SettingsScreen from "./screens/SettingsScreen"
 export default function App() {
   const [screen, setScreen] = useState("Calendar")
 
+  getScreen = newScreen => {
+    setScreen(newScreen)
+    console.log(newScreen)
+  }
+
   return (
     <View style={styles.container}>
       <StatusBar style="auto"/>
       <Header title="JobLog"/>
-      {screen == "Calendar" && <CalendarScreen/>}
-      {screen == "Settings" && <SettingsScreen/>}
-      <NavigationBar/>
+      <CalendarScreen currScreen={screen}/>
+      <SettingsScreen currScreen={screen}/>
+      <NavigationBar setNewScreen={getScreen}/>
     </View>
   );
 }

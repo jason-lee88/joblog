@@ -6,7 +6,7 @@ import Calendar from '../components/calendar/Calendar'
 
 const CalendarScreen = props => {
     return (
-        <View style={styles.container}>
+        <View style={styles.container} display={props.currScreen == "Calendar" ? 'flex': 'none'}>
             <WeekdayLabels/>
             <Calendar/>
         </View>
@@ -15,7 +15,7 @@ const CalendarScreen = props => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
     }
 });
 

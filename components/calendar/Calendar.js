@@ -47,6 +47,7 @@ class Calendar extends React.Component {
         <CalendarMonth
             monthIdentity = {item}
             index = {index}
+            key = ""
         />
     )
 

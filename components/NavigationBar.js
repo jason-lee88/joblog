@@ -6,6 +6,7 @@ const NavigationBar = props => {
 
     onPress = newScreen => {
         setScreen(newScreen)
+        props.setNewScreen(newScreen)
     }
 
     return (
