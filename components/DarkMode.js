@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text, Switch } from 'react-native'
+import { StyleSheet, View, Text, Switch } from 'react-native'
 
 const DarkMode = props => {
     const [enabled, setEnabled] = useState(false)
@@ -19,7 +19,7 @@ const DarkMode = props => {
     )
 }
 
-const styles = {
+const styles = StyleSheet.create({
     container: {
         margin: 5,
         flexDirection: 'row',
@@ -29,6 +29,6 @@ const styles = {
     text: {
         fontSize: 24
     }
-}
+})
 
 export default DarkMode

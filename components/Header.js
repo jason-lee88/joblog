@@ -8,7 +8,9 @@ const Header = props => {
         <SafeAreaView style={styles.header}>
             <View style={styles.leftContainer}/>
             <Text style={styles.headerTitle}>{props.title}</Text>
-            <View style={styles.rightContainer}><AddEventButton/></View>
+            <View style={styles.rightContainer}>
+                {props.currScreen == "Calendar" && <AddEventButton/>}
+            </View>
         </SafeAreaView>
     )
 };

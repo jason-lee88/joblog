@@ -6,6 +6,7 @@ import Header from './components/Header'
 import NavigationBar from './components/NavigationBar'
 import CalendarScreen from './screens/CalendarScreen'
 import SettingsScreen from "./screens/SettingsScreen"
+import AddEventScreenContainer from "./components/addEvent/AddEventScreenContainer"
 
 export default function App() {
   const [screen, setScreen] = useState("Calendar")
@@ -18,9 +19,10 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto"/>
-      <Header title="JobLog"/>
+      <Header title="JobLog" currScreen={screen}/>
       <CalendarScreen currScreen={screen}/>
       <SettingsScreen currScreen={screen}/>
+      {/* <AddEventScreenContainer/> */}
       <NavigationBar setNewScreen={getScreen}/>
     </View>
   );
