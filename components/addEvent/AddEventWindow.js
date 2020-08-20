@@ -1,20 +1,37 @@
 import React, { useState } from 'react'
-import { StyleSheet, View, Text } from 'react-native'
+import { StyleSheet, View, Text, SectionList, TextInput } from 'react-native'
 
 import Close from "./Close"
 
 const AddEventWindow = props => {
+    const [name, setName] = useState("")
+    const [type, setType] = useState("")
+
+    const data = [
+        {
+            data: ["Name", "Type"]
+        }
+    ]
+
+    _renderItem = ({item}) => (
+        <Text>{item}</Text>
+    )
+
     return (
         <View style={styles.container}>
             <Close setVisibility={props.setVisibility}/>
             <Text style={styles.title}>New Event</Text>
+            <SectionList
+                sections={data}
+                renderItem={_renderItem}
+            />
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     title: {
-        fontSize: 36,
+        fontSize: 28,
         alignSelf: 'center'
     },
     container: {
