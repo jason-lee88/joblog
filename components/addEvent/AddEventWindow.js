@@ -10,15 +10,39 @@ const AddEventWindow = props => {
     const data = [
         {
             data: ["Name", "Type"]
+        },
+        {
+            data: ["Date", "Time"]
+        },
+        {
+            data: ["Contact"]
+        },
+        {
+            data: ["Notes"]
         }
     ]
 
-    _renderItem = ({item}) => (
-        <Text>{item}</Text>
-    )
+    _renderItem = ({item, index}) => {
+        return (
+            <View>
+                {index == 0 && item != "Name" && <View style={styles.separator}/>}
+                {/* Manual separators because SectionSeparatorComponent renders at top and bottom of sections */}
+                <View style={styles.fieldContainer}>
+                    <Text style={styles.fieldText}>{item}</Text>
+                    <TextInput placeholder={"Enter information"} textAlign={'right'} maxLength={16}/>
+                </View>
+            </View>
+        )
+    }
+
+    _sectionSeparatorComponent = () => {
+        return (
+            <View style={styles.separator}/>
+        )
+    }
 
     return (
-        <View style={styles.container}>
+        <View style={styles.windowContainer}>
             <Close setVisibility={props.setVisibility}/>
             <Text style={styles.title}>New Event</Text>
             <SectionList
@@ -34,7 +58,19 @@ const styles = StyleSheet.create({
         fontSize: 28,
         alignSelf: 'center'
     },
-    container: {
+    fieldContainer: {
+        margin: 20,
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+    fieldText: {
+        fontSize: 20
+    },
+    separator: {
+        height: 1,
+        backgroundColor: '#e0e0e0'
+    },
+    windowContainer: {
         backgroundColor: '#f0f0f0',
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,

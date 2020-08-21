@@ -14,7 +14,7 @@ const Close = props => {
 const styles = StyleSheet.create({
     x: {
         fontSize: 20,
-        color: '#a0a0a0',
+        color: '#b0b0b0',
         alignSelf: 'center'
     },
     container: {

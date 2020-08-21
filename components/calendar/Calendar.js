@@ -53,11 +53,9 @@ class Calendar extends React.Component {
 
     _keyExtractor = ({month, year, index}) => month + "-" + year
 
-    _itemSeparatorComponent = () => {
-        return (
-            <View style={styles.separator}/>
-        )
-    }
+    _itemSeparatorComponent = () => (
+        <View style={styles.separator}/>
+    )
 
     _onEndReached  = () => {
         let currMonth = this.state.month
