@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { StyleSheet, View, Text, SectionList, TextInput } from 'react-native'
+import { StyleSheet, View, Text, SectionList, TextInput, KeyboardAvoidingView } from 'react-native'
 
 import Close from "./Close"
 
@@ -22,14 +22,14 @@ const AddEventWindow = props => {
         }
     ]
 
-    _renderItem = ({item, index}) => {
+    _renderItem = ({item, index, section}) => {
         return (
             <View>
                 {index == 0 && item != "Name" && <View style={styles.separator}/>}
                 {/* Manual separators because SectionSeparatorComponent renders at top and bottom of sections */}
                 <View style={styles.fieldContainer}>
                     <Text style={styles.fieldText}>{item}</Text>
-                    <TextInput placeholder={"Enter information"} textAlign={'right'} maxLength={16}/>
+                    <TextInput style={styles.textInput} placeholder={"Enter information"} maxLength={32} multiline={false}/>
                 </View>
             </View>
         )
@@ -42,14 +42,15 @@ const AddEventWindow = props => {
     }
 
     return (
-        <View style={styles.windowContainer}>
+        <KeyboardAvoidingView style={styles.windowContainer} behavior={'padding'}>
             <Close setVisibility={props.setVisibility}/>
             <Text style={styles.title}>New Event</Text>
             <SectionList
                 sections={data}
                 renderItem={_renderItem}
+                ref={component => {sectionList = component}}
             />
-        </View>
+        </KeyboardAvoidingView>
     )
 }
 
@@ -60,11 +61,21 @@ const styles = StyleSheet.create({
     },
     fieldContainer: {
         margin: 20,
+        marginVertical: 15,
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        alignItems: 'center'
     },
     fieldText: {
-        fontSize: 20
+        fontSize: 20,
+        marginRight: 10
+    },
+    textInput: {
+        textAlign: 'right',
+        textAlignVertical: 'top',
+        paddingVertical: 10,
+        paddingLeft: 10,
+        minWidth: '30%'
     },
     separator: {
         height: 1,
